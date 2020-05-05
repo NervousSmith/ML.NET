@@ -10,12 +10,18 @@ namespace MainProject
     class DatePrediction
     {
         [ColumnName("Score")]
-        public float arrival_date;
+        public float arrivalDate;
+
+        
+
         public DateTime ToDateTime()
         {
-            var dateTime = DateTimeOffset.FromUnixTimeSeconds(Convert.ToInt64(arrival_date)).DateTime.ToLocalTime();
+            long arrivalDateAfterConversion = Convert.ToInt64(arrivalDate);
+            Console.WriteLine(arrivalDateAfterConversion);
+            Console.ReadLine();
+            var dateTime = DateTimeOffset.FromUnixTimeMilliseconds(arrivalDateAfterConversion).DateTime.ToLocalTime();
             return dateTime;
-    }
+        }
     }
 
    
